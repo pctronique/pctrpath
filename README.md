@@ -2,7 +2,7 @@
 
 Merci de visiter le wiki (https://github.com/pctronique/pctrpath/wiki).
 
-Pour mettre facilement un routage des pages du site.
+Pour chemin de dossier propre.
 
 Pas besoin de base de données, pas de configuration pour l'utiliser.
 
