@@ -93,6 +93,21 @@ if (!class_exists('Platform')) {
             return false;
         }
 
+        /**
+         * Vérifier qu'on utilise l'antislash comme séparateur.
+         *
+         * @return boolean true si c'est un windows.
+         */
+        public function isSepAntislash():bool {
+            $php_os = $this->php_os();
+            if(!empty($php_os) && strlen($php_os) > 2) {
+                if (substr($php_os, 0, 3) == "WIN") {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
     }
 

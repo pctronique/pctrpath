@@ -1,12 +1,20 @@
 <?php
 
-include_once dirname(__FILE__) . '/src/class/pctrouting/Path.php';
-include_once dirname(__FILE__) . '/src/class/pctrouting/PathDef.php';
-include_once dirname(__FILE__) . '/src/class/pctrouting/RouteMain.php';
-include_once dirname(__FILE__) . '/src/class/pctrouting/Platform.php';
-include_once dirname(__FILE__) . '/src/class/pctrouting/PathServe.php';
-include_once dirname(__FILE__) . '/code/tabletest.php';
-include_once dirname(__FILE__) . '/code/pathtest.php';
+include_once dirname(__FILE__) . '/src/class/pctrpath/Path.php';
+include_once dirname(__FILE__) . '/src/class/pctrpath/PathDef.php';
+include_once dirname(__FILE__) . '/src/class/pctrpath/Platform.php';
+include_once dirname(__FILE__) . '/src/class/pctrpath/PathServe.php';
+
+function displaypath(null|PathDef $pathdef): void { ?>
+<div class="table_value">
+<label>Diskname :</label><p><?= $pathdef->getDiskname() ?></p>
+<label>Name :</label><p><?= $pathdef->getName() ?></p>
+<label>Parent :</label><p><?= $pathdef->getParent() ?></p>
+<label>AbsolutePath :</label><p><?= $pathdef->getAbsolutePath() ?></p>
+<label>Path :</label><p><?= $pathdef->getPath() ?></p>
+<label>AbsoluteParent :</label><p><?= $pathdef->getAbsoluteParent() ?></p>
+</div>
+<?php }
 
 ?>
 <!DOCTYPE html>
@@ -25,45 +33,21 @@ include_once dirname(__FILE__) . '/code/pathtest.php';
     />
 </head>
 <body>
-    <header>
-      <div class="all-logo">
-        <img
-            src="./favicon.ico"
-            alt="logo site"
-        />
-      </div>
-      <menu>
-        <label id="menu-burger" for="menu-display">
-          <i class="bi bi-list"></i>
-        </label>
-        <input type="checkbox" name="menu display" id="menu-display" />
-        <ul class="all-bt-menu">
-          <li class="bt-menu no-submenu">
-            <a href="./">acc</a>
-          </li>
-          <li class="bt-menu no-submenu">
-            <a href="./route">route</a>
-          </li>
-        </ul>
-      </menu>
-    </header>
     <section class="firstsection">
         <h1>Path</h1>
-            <?php
-                displaytab(createtabclass(new Path()), "new Path()");
-                displaytab(createtabclass(new Path("./folder/")), 'new Path("./folder/")');
-                displaytab(createtabclass(new Path(new Path("./folder/"), "./file")), 'new Path(new Path("./folder/"), "./file")');
-                displaytab(createtabclass(new Path("test021/jhgf", "rtyu/frt")), 'new Path("test021/jhgf", "rtyu/frt")');
-                displaytab(createtabclass(new Path("/usr/local/apache2/www")), 'new Path("/usr/local/apache2/www")');
-            ?>
+        <?php $test1 = new Path("./folder1/../folder1///folder2", "file"); ?>
+        <div>
+          <h2>'new Path("./folder1/../folder1///folder2", "file");'</h2>
+          <?php displaypath($test1); ?>
+        </div>
     </section>
     <section>
         <h1>PathServe</h1>
-            <?php
-                displaytab(createtabclass(new PathServe()), "class 1");
-                displaytab(createtabclass(new PathServe("test021/jhgf", "rtyu/frt")), "class 2");
-                displaytab(createtabclass(new PathServe("http://localhost:86")), "class 3");
-            ?>
+        <?php $test1 = new PathServe("./folder1/../folder1///folder2", "file"); ?>
+        <div>
+          <h2>'new PathServe("./folder1/../folder1///folder2", "file");'</h2>
+          <?php displaypath($test1); ?>
+        </div>
     </section>
-</body>
+  </body>
 </html>
