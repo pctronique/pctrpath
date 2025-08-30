@@ -36,3 +36,4 @@
 /composer.lock
 /project/www/vendor/
 /project/www/composer.lock
+/project/www/src/class/pctrplatform

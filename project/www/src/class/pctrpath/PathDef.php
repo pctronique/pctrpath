@@ -2,7 +2,7 @@
 // verifier qu'on n'a pas deja creer la classe
 if (!class_exists('PathDef')) {
 
-    require_once __DIR__ . "/Platform.php";
+    require_once __DIR__ . "/../pctrplatform/Platform.php";
     require_once __DIR__ . "/RegexPath.php";
 
     define("RACINE_SITE", __DIR__."/../../..");
