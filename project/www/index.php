@@ -41,6 +41,16 @@ function displaypath(null|PathDef $pathdef): void { ?>
           <?php displaypath($test1); ?>
         </div>
     </section>
+    <section class="firstsection">
+        <h1>Path</h1>
+        <?php 
+        $path = __DIR__ . "/../../../plugins/";
+        $test1 = new Path($path, "plugins1"); ?>
+        <div>
+          <h2>'new Path(__DIR__ . "/../../../plugins/", "plugins1");'</h2>
+          <?php displaypath($test1); ?>
+        </div>
+    </section>
     <section>
         <h1>PathServe</h1>
         <?php $test1 = new PathServe("./folder1/../folder1///folder2", "file"); ?>
